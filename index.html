@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Default Object Liferay</title>
+</head>
+<body>
+  <h1>Generate Default Object Liferay</h1>
+  <form id="objectForm">
+    <label for="objectName">Enter Object Name:</label>
+    <input type="text" id="objectName" name="objectName" required>
+    <label for="baseUrl">Enter Base Url:</label>
+    <input type="text" id="baseUrl" name="baseUrl" required>
+    <button type="submit">Generate JSON</button>
+  </form>
+  <div id="downloadLink"></div>
+
+  <script>
+    var objectBase = {
+        "enableComments": false,
+        "objectRelationships": [],
+        "enableCategorization": true,
+        "accountEntryRestrictedObjectFieldName": "",
+        "objectActions": [
+          {
+            "conditionExpression": "",
+            "objectActionExecutorKey": "webhook",
+            "errorMessage": {},
+            "active": true,
+            "description": "",
+            "label": {
+              "pt_BR": "Create"
+            },
+            "externalReferenceCode": "1f02d722-7834-6300-504d-13eedcdbca21",
+            "system": false,
+            "objectActionTriggerKey": "onAfterAdd",
+            "name": "create",
+            "parameters": {
+              "url": ""
+            },
+            "status": {
+              "label_i18n": "Sucesso",
+              "code": 1,
+              "label": "success"
+            }
+          },
+          {
+            "conditionExpression": "",
+            "objectActionExecutorKey": "webhook",
+            "errorMessage": {},
+            "active": true,
+            "description": "",
+            "label": {
+              "pt_BR": "Update"
+            },
+            "externalReferenceCode": "7ba89d24-c505-7320-da2b-94b6271a3085",
+            "system": false,
+            "objectActionTriggerKey": "onAfterUpdate",
+            "name": "update",
+            "parameters": {
+              "url": ""
+            },
+            "status": {
+              "label_i18n": "Nunca Executado",
+              "code": 0,
+              "label": "never-ran"
+            }
+          },
+          {
+            "conditionExpression": "",
+            "objectActionExecutorKey": "webhook",
+            "errorMessage": {},
+            "active": true,
+            "description": "",
+            "label": {
+              "pt_BR": "Delete"
+            },
+            "externalReferenceCode": "391b838e-b443-95aa-a517-92b14ca13096",
+            "system": false,
+            "objectActionTriggerKey": "onAfterDelete",
+            "name": "delete",
+            "parameters": {
+              "url": ""
+            },
+            "status": {
+              "label_i18n": "Nunca Executado",
+              "code": 0,
+              "label": "never-ran"
+            }
+          }
+        ],
+        "enableLocalization": false,
+        "accountEntryRestricted": false,
+        "externalReferenceCode": "410e26d5-a398-6971-12f1-ddd2e093d758",
+        "objectFields": [
+          {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "Author"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "c6a7d665-3a3c-391c-68cc-12c95b3cadbe",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "creator",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "Date",
+            "label": {
+              "pt_BR": "Create Date"
+            },
+            "type": "Date",
+            "required": false,
+            "externalReferenceCode": "eb1c9f23-33a9-411a-b682-39e25960be77",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "createDate",
+            "state": false,
+            "businessType": "Date",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "External Reference Code"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "2152f0db-6301-f08b-75fa-f28275cd9d4e",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "externalReferenceCode",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "Long",
+            "label": {
+              "pt_BR": "ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "8852f189-e776-b4ad-e9d2-e74d6992fa9b",
+            "indexedAsKeyword": true,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "id",
+            "state": false,
+            "businessType": "LongInteger",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "Date",
+            "label": {
+              "pt_BR": "Modified Date"
+            },
+            "type": "Date",
+            "required": false,
+            "externalReferenceCode": "97351150-3e1c-3883-22ec-f4212bb64e51",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "modifiedDate",
+            "state": false,
+            "businessType": "Date",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "Status"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "b30042d5-24d5-1f4c-df16-9e40554b9003",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "status",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "articleId"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "705afd68-6a6f-ad3b-5e8d-e40988d6749d",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "articleId",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "folderId"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "a386e465-5873-0439-35ca-d6bec65ed5f2",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "folderId",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "Titulo"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "111117cc-a359-9ac2-7dd8-6a8b6a9afdca",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "title",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "Sumario"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "1feff283-884e-36e4-46a0-fd1936e10060",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "description",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [
+              {
+                "name": "timeStorage",
+                "value": "useInputAsEntered"
+              }
+            ],
+            "readOnly": "false",
+            "DBType": "DateTime",
+            "label": {
+              "pt_BR": "Data de Expiracao"
+            },
+            "type": "DateTime",
+            "required": false,
+            "externalReferenceCode": "59a3ddd5-3607-12c6-3a76-769e1caf4ebe",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "expirationDate",
+            "state": false,
+            "businessType": "DateTime",
+            "readOnlyConditionExpression": ""
+          },
+          {
+            "listTypeDefinitionExternalReferenceCode": "25bacb8f-3e55-9b06-587d-2fbf13c4173e",
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+              "pt_BR": "Status"
+            },
+            "type": "String",
+            "required": true,
+            "externalReferenceCode": "d915e5c6-e8d2-77b2-e68a-7818912317b5",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "statusItem",
+            "state": false,
+            "businessType": "Picklist",
+            "readOnlyConditionExpression": ""
+          }
+        ],
+        "restContextPath": "/o/c/consultaassistencias",
+        "scope": "company",
+        "portlet": true,
+        "modifiable": true,
+        "parameterRequired": false,
+        "enableObjectEntryHistory": false,
+        "titleObjectFieldName": "id",
+        "objectValidationRules": [],
+        "active": true,
+        "defaultLanguageId": "pt_BR",
+        "label": {
+          "pt_BR": "Consulta Assistencia"
+        },
+        "panelCategoryKey": "applications_menu.applications.content",
+        "pluralLabel": {
+          "pt_BR": "Consulta Assistencia"
+        },
+        "objectLayouts": [
+          {
+            "objectLayoutTabs": [
+              {
+                "name": {
+                  "pt_BR": "Fields"
+                },
+                "objectLayoutBoxes": [
+                  {
+                    "objectLayoutRows": [
+                      {
+                        "objectLayoutColumns": [
+                          {
+                            "objectFieldName": "articleId",
+                            "size": 4,
+                            "priority": 0
+                          },
+                          {
+                            "objectFieldName": "folderId",
+                            "size": 4,
+                            "priority": 0
+                          },
+                          {
+                            "objectFieldName": "statusItem",
+                            "size": 4,
+                            "priority": 0
+                          }
+                        ],
+                        "priority": 0
+                      },
+                      {
+                        "objectLayoutColumns": [
+                          {
+                            "objectFieldName": "title",
+                            "size": 12,
+                            "priority": 0
+                          }
+                        ],
+                        "priority": 0
+                      },
+                      {
+                        "objectLayoutColumns": [
+                          {
+                            "objectFieldName": "description",
+                            "size": 12,
+                            "priority": 0
+                          }
+                        ],
+                        "priority": 0
+                      },
+                      {
+                        "objectLayoutColumns": [
+                          {
+                            "objectFieldName": "expirationDate",
+                            "size": 6,
+                            "priority": 0
+                          }
+                        ],
+                        "priority": 0
+                      }
+                    ],
+                    "collapsable": true,
+                    "name": {
+                      "pt_BR": "Configuration"
+                    },
+                    "priority": 0,
+                    "type": "regular"
+                  },
+                  {
+                    "objectLayoutRows": [],
+                    "collapsable": false,
+                    "name": {
+                      "pt_BR": "Fields"
+                    },
+                    "priority": 0,
+                    "type": "regular"
+                  }
+                ],
+                "priority": 0
+              }
+            ],
+            "objectDefinitionExternalReferenceCode": "410e26d5-a398-6971-12f1-ddd2e093d758",
+            "name": {
+              "pt_BR": "Main"
+            },
+            "defaultObjectLayout": true
+          }
+        ],
+        "system": false,
+        "objectViews": [],
+        "name": "ConsultaAssistencia",
+        "actions": {
+          "permissions": {},
+          "get": {},
+          "update": {},
+          "delete": {}
+        },
+        "status": {
+          "label_i18n": "Aprovado",
+          "code": 0,
+          "label": "approved"
+        }
+      }
+
+    // UUID generator function
+    function generateUUID() { // Public Domain/MIT
+      var d = new Date().getTime();
+      var d2 = (performance && performance.now && (performance.now()*1000)) || 0;
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16;
+          if(d > 0){
+              r = (d + r)%16 | 0;
+              d = Math.floor(d/16);
+          } else {
+              r = (d2 + r)%16 | 0;
+              d2 = Math.floor(d2/16);
+          }
+          return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+      });
+    }
+
+    document.getElementById('objectForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var NAME_OF_OBJECT = document.getElementById('objectName').value;
+      var BASE_URL = document.getElementById('baseUrl').value;
+
+      // Clone the objectBase to avoid modifying the original
+      var modifiedObject = JSON.parse(JSON.stringify(objectBase));
+
+      modifiedObject.name = NAME_OF_OBJECT;
+      modifiedObject.pluralLabel['pt_BR'] = NAME_OF_OBJECT;
+      modifiedObject.label['pt_BR'] = NAME_OF_OBJECT;
+      modifiedObject.restContextPath = `/o/c/${NAME_OF_OBJECT.toLowerCase().replace(/ /g, '')}s`;
+
+      modifiedObject.objectActions.forEach(function(action) {
+        action.parameters.url = `https://${BASE_URL}/v1/content?collection=${NAME_OF_OBJECT.toLowerCase().replace(/ /g, '')}`;
+      });
+
+      modifiedObject.externalReferenceCode = generateUUID();
+
+      modifiedObject.objectLayouts.forEach(function(layout) {
+        layout.objectDefinitionExternalReferenceCode = modifiedObject.externalReferenceCode;
+      });
+
+      modifiedObject.objectActions.forEach(function(action) {
+        action.externalReferenceCode = generateUUID();
+      });
+
+      modifiedObject.objectFields.forEach(function(field) {
+        field.externalReferenceCode = generateUUID();
+      });
+
+      // Convert the modifiedObject to JSON string
+      var jsonString = JSON.stringify(modifiedObject, null, 2);
+
+      // Create a Blob and generate a download link
+      var blob = new Blob([jsonString], {type: "application/json"});
+      var url = URL.createObjectURL(blob);
+
+      var downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = `${NAME_OF_OBJECT.toLowerCase().replace(/ /g, '')}.json`;
+      downloadLink.innerText = 'Download Modified JSON';
+
+      var downloadDiv = document.getElementById('downloadLink');
+      downloadDiv.innerHTML = ''; // Clear previous link
+      downloadDiv.appendChild(downloadLink);
+    });
+  </script>
+</body>
+</html>
